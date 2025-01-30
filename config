@@ -1,0 +1,145 @@
+set $ALT mod1
+set $Meta mod4
+#mod4 =>Windous click
+set $Shift shift
+set $control control
+
+# Use Mouse+$ALT to drag floating windows to their wanted position
+
+floating_modifier mod4
+
+exec --no-startup-id feh --bg-fill ~/Pictures/backgrund.jpg
+
+for_window [title="Desktop @ QRect.*"] kill; floating enable; border none
+for_window [title="Desktop @ QRect"] kill; floating enable; border none
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+
+# using plasma's logout screen instead of i3's
+
+bindsym mod4+Shift+e exec --no-startup-id qdbus-qt5 org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+
+# using plasma's logout screen instead of i3's
+# start a terminal
+bindsym mod4+Return exec konsole
+
+#bindsym mod4+Q kill
+#bindsym mod4+shift+Q exit
+
+bindsym mod4+shift+Q kill
+
+bindsym mod4+d exec --no-startup-id rofi -show drun
+exec always nitrogen --restore
+exec picom
+
+bindsym mod4+shift+R reload
+
+# bindsym mod4+shift+Q exit
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
+exec_always --no-startup-id picom -bc
+
+client.focused #0F0F0F #7FB256 #F5F5FF
+client.focused_inactive #0F0F0F #7FB256 #E5E5E5
+client.unfocused #0F0F0F #5697B2 #E5E5E5
+client.urgent #0F0F0F #BC9B54 #E5E5E5
+
+# you can use the cursor keys:ٌ
+
+bindsym mod4+shift+Left move left
+bindsym mod4+shift+Down move down
+bindsym mod4+shift+Up move up
+bindsym mod4+shift+Right move right
+
+# split in horizontal orientation
+
+bindsym $ALT+h split h
+
+# split in vertical orientation
+
+bindsym $ALT+v split v
+
+# enter fullscreen mode for the focused container
+
+bindsym $ALT+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+
+bindsym $ALT+s layout stacking
+bindsym $ALT+t layout tabbed
+bindsym $ALT+e layout default
+
+# toggle tiling / floating
+
+bindsym $Meta+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+
+bindsym $ALT+space focus mode_toggle
+
+# focus the parent container
+
+bindsym $ALT+a focus parent
+
+# focus the child container
+
+#bindcode $ALT+d focus child
+
+# switch to workspace
+
+bindsym $ALT+1 workspace 1
+bindsym $ALT+2 workspace 2
+bindsym $ALT+3 workspace 3
+bindsym $ALT+4 workspace 4
+
+# move focused container to workspace
+
+bindsym $ALT+control+1 move container to workspace 1
+bindsym $ALT+control+2 move container to workspace 2
+bindsym $ALT+control+3 move container to workspace 3
+bindsym $ALT+control+4 move container to workspace 4
+
+# bar {
+
+# colors {
+
+# background #0F0F0F
+
+# statusline #D5D5D5
+
+# focused_workspace #F5F5FF #7FB256
+
+# active_workspace #E5E5E5 #5697B2
+
+# inactive_workspace #E5E5E5 #5697B2
+
+# urgent_workspace #E5E5E5 #BC9B54
+
+# }
+
+# }
+
+#borders
+new_window pixel 0
+new_float pixel 0
+
+# Hide borders
+
+hide_edge_borders none
+
+# change borders
+
+bindsym mod4+u border pixel 2
+bindsym mod4+y border none
+font xft:Fira code 10
