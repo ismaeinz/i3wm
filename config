@@ -1,6 +1,6 @@
 set $ALT mod1
 set $Meta mod4
-#mod4 =>Windous click
+#mod4 =>Windows click
 set $Shift shift
 set $control control
 
@@ -129,17 +129,12 @@ bindsym $ALT+control+4 move container to workspace 4
 # }
 
 # }
-
 #borders
 new_window pixel 0
 new_float pixel 0
-
 # Hide borders
-
 hide_edge_borders none
-
 # change borders
-
 bindsym mod4+u border pixel 2
 bindsym mod4+y border none
 font xft:Fira code 10
